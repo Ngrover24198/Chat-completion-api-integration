@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 from dotenv import load_dotenv
 from openai import OpenAI
-from flask import Blueprint, request, current_app, render_template
+from flask import Blueprint, jsonify, request, current_app, render_template
 
 from app.extensions import db, limiter
 from app.models.models import chatApp, chatSession
@@ -15,6 +15,12 @@ bp = Blueprint('routes', __name__)
 def index():
     # index template for the chat application
     return render_template("chatapp/index.html")
+
+
+@bp.route("/api-page/")
+def api_page():
+    # new route to move to final api_page
+    return render_template("chatapp/api_page.html")
 
 
 @bp.route("/openai-completion/", methods=["POST"])

@@ -55,6 +55,26 @@
             width: 100%;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
         }
+        
+        /* styles for button */
+        .api-button {
+            display: inline-block; 
+            cursor: pointer;
+            font-size: 20px; 
+            padding: 15px 30px; 
+            border: none;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            color: white; 
+            margin-top: 20px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .api-button:hover, .api-button:focus {
+            background-color: #003d82; 
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -65,6 +85,7 @@
 
 <div class="content">
     <p>This is a simple HTML and CSS template for an OpenAPI Chat Integration Application. It's a basic template for the front page of the application, designed to be clean, modern, and responsive.</p>
+    <button class="api-button" onclick="window.location.href='/api-page';">Test the openai-completion API</button>
 </div>
 
 </body>

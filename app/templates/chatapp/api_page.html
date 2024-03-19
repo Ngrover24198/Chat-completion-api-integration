@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Request Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        #jsonInput, #responseOutput {
+            width: 80%;
+            margin: 10px auto;
+            display: block;
+            font-family: monospace;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: auto; /* Ensure the height adjusts to content */
+            overflow: auto; /* Adds scrollbars if content overflows */
+        }
+
+        button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #0056b3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #003d82;
+        }
+    </style>
+</head>
+<body>
+    <h2>Send a Request to the openai-completion API</h2>
+    <textarea id="jsonInput" rows="10">{"prompt": "Hello, how are you today?", "user_id": "your_user_id_here"}</textarea>
+    <button onclick="sendRequest()">Send Request</button>
+    <h3>Response:</h3>
+    <pre id="responseOutput"></pre>
+
+    <script>
+        function sendRequest() {
+            var xhr = new XMLHttpRequest();
+            var url = "/openai-completion/";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    document.getElementById("responseOutput").innerHTML = JSON.stringify(json, undefined, 2);
+                }
+            };
+            var data = document.getElementById("jsonInput").value;
+            xhr.send(data);
+        }
+    </script>
+</body>
+</html>
