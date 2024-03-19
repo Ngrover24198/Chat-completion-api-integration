@@ -90,9 +90,9 @@ To interact with the OpenAI completion API:
 
 Below are images that highlight the interactive application's interface for testing the OpenAI completion API. (Images are located in the `png/` folder of the main branch).
 
-- ![Image 1](png/flaskapp.png)
-- ![Image 2](png/flaskapp_api.png)
-- ![Image 3](png/flaskapp_api_2.png)
+![Image 1](png/flaskapp.png)
+![Image 2](png/flaskapp_api.png)
+![Image 3](png/flaskapp_api_2.png)
 
 ## References
 
